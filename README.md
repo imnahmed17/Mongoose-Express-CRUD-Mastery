@@ -5,6 +5,7 @@ This project is a User Management System built using Node.js, Express.js, typesc
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
+  - [Live Link](#live-link)
 - [Project Structure](#project-structure)
 - [Usage](#usage)
   - [Create User](#create-user)
@@ -37,3 +38,6 @@ git clone https://github.com/imnahmed17/Mongoose-Express-CRUD-Mastery.git
 cd Mongoose-Express-CRUD-Mastery
 npm run start:dev
 ```
+
+### Live Link
+Hosted in Vercel -> [Mongoose-Express-CRUD-Mastery](https://level-2-assignment-2-6gbjirwxr-imnahmed17.vercel.app)
