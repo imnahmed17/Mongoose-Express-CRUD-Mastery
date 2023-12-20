@@ -74,7 +74,7 @@ const userSchema = new Schema<TUser, UserModel>(
         password: {
             type: String,
             required: [true, 'Password is required'],
-            maxlength: [100, 'Password can not be more than 100 characters'],
+            minlength: [5, 'Password can not be less than 5 characters'],
         },
         fullName: {
             type: fullNameSchema,
@@ -83,7 +83,7 @@ const userSchema = new Schema<TUser, UserModel>(
         age: {
             type: Number,
             required: [true, 'Age is required'],
-            min: [15, 'Age must be at least 15 years old'],
+            min: [10, 'Age must be at least 10 years old'],
         },
         email: {
             type: String,
