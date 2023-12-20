@@ -12,7 +12,7 @@ This project is a User Management System built using Node.js, Express.js, typesc
   - [Get Single User](#get-single-user)
   - [Update User](#update-user)
   - [Delete User](#delete-user)
-  - [Create Order](#create-order)
+  - [Add Order](#add-order)
   - [Get All Orders for Single User](#get-all-orders-for-single-user)
   - [Calculate Total Price of Orders for Single User](#calculate-total-price-of-orders-for-single-user)
 - [Contributing](#contributing)
