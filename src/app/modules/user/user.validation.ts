@@ -40,5 +40,3 @@ export const userValidationSchema = z.object({
     isDeleted: z.boolean().optional().default(false),
     orders: z.array(orderSchema).default([]),
 });
-
-// export {userValidationSchema, orderSchema};
