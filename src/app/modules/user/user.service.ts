@@ -1,4 +1,4 @@
-import { TUser } from "./user.interface";
+import { TOrder, TUser } from "./user.interface";
 import { User } from "./user.model";
 
 const createUserIntoDB = async (userData: TUser) => {
@@ -46,10 +46,54 @@ const deleteUserFromDB = async (userId: string) => {
     return await User.updateOne({ userId }, { isDeleted: true });
 };
 
+const addOrderIntoUserDB = async (userId: string, orderData: TOrder) => {
+    const existingUser = await User.findOne({ userId });
+
+    if (!existingUser) {
+        throw new Error(`User not found`); // check if user exists or deleted
+    }
+
+    if (!existingUser.orders) {
+        existingUser.orders = []; // Check if 'orders' property exists, if not, create it
+    }
+
+    existingUser.orders.push(orderData); // Append the new order to the 'orders' array
+    await existingUser.save();
+
+    return existingUser.orders;
+};
+
+const getAllOrdersForSingleUserFromDB = async (userId: string) => {
+    const existingUser = await User.findOne({ userId });
+
+    if (!existingUser) {
+        throw new Error(`User not found`); // check if user exists or deleted
+    }
+
+    return existingUser.orders;
+};
+
+const calculateTotalPriceOfOrdersForUserFromDB = async (userId: string) => {
+    const existingUser = await User.findOne({ userId });
+
+    if (!existingUser) {
+        throw new Error(`User not found`); // check if user exists or deleted
+    }
+
+    if (existingUser.orders.length === 0) {
+        throw new Error(`No orders found`); // Check if 'orders' array is empty
+    }
+
+    return existingUser.orders.reduce((acc, order) => acc + order.price * order.quantity, 0).toFixed(2);
+};
+
 export const UserServices = {
     createUserIntoDB,
     getAllUsersFromDB,
     getSingleUserFromDB,
     updateUserIntoDB,
     deleteUserFromDB,
+    addOrderIntoUserDB,
+    getAllOrdersForSingleUserFromDB,
+    calculateTotalPriceOfOrdersForUserFromDB,
 };

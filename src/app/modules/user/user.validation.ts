@@ -21,7 +21,7 @@ const addressSchema = z.object({
     }),
 });
 
-const orderSchema = z.object({
+export const orderSchema = z.object({
     productName: z.string(),
     price: z.number().min(1),
     quantity: z.number().min(1),
@@ -41,4 +41,4 @@ export const userValidationSchema = z.object({
     orders: z.array(orderSchema).default([]),
 });
 
-export default userValidationSchema;
+// export {userValidationSchema, orderSchema};
