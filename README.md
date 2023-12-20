@@ -40,4 +40,4 @@ npm run start:dev
 ```
 
 ### Live Link
-Hosted in Vercel -> [Mongoose-Express-CRUD-Mastery](https://level-2-assignment-2-6gbjirwxr-imnahmed17.vercel.app)
+Hosted in Vercel -> [Mongoose-Express-CRUD-Mastery](https://level-2-assignment-2-livid.vercel.app)
